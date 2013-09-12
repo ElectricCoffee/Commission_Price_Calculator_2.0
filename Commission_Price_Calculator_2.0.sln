@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commission_Price_Calculator_2.0", "Commission_Price_Calculator_2.0\Commission_Price_Calculator_2.0.csproj", "{2111E429-E94F-4D3D-957D-43BFDBC14D4C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Logic", "Logic\Logic.fsproj", "{4F5603D9-A0D4-4CB7-9FD8-7EE7C1B3CA46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2111E429-E94F-4D3D-957D-43BFDBC14D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2111E429-E94F-4D3D-957D-43BFDBC14D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2111E429-E94F-4D3D-957D-43BFDBC14D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2111E429-E94F-4D3D-957D-43BFDBC14D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5603D9-A0D4-4CB7-9FD8-7EE7C1B3CA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5603D9-A0D4-4CB7-9FD8-7EE7C1B3CA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5603D9-A0D4-4CB7-9FD8-7EE7C1B3CA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5603D9-A0D4-4CB7-9FD8-7EE7C1B3CA46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
