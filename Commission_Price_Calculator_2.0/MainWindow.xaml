@@ -135,9 +135,18 @@
                     VerticalAlignment="Top" 
                     HorizontalAlignment="Right" 
                     Width="38"/>
-                <ComboBox Text="Choose One..." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220">
-                    <ComboBoxItem>Price Per Character</ComboBoxItem>
-                    <ComboBoxItem>Percent Saved</ComboBoxItem>
+                <ComboBox 
+                    Text="Choose One..." 
+                    HorizontalAlignment="Left" 
+                    Margin="10,10,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="220">
+                    <ComboBoxItem>
+                        Price Per Character
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Percent Saved
+                    </ComboBoxItem>
                 </ComboBox>
 
             </Grid>
