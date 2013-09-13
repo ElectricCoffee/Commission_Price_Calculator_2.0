@@ -27,5 +27,10 @@ namespace CommishCalculatorV2
             InitializeComponent();
             
         }
+
+        private void SaveMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("SomeText");
+        }
     }
 }

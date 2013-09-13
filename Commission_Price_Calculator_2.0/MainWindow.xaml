@@ -1,19 +1,158 @@
 ﻿<Window x:Class="CommishCalculatorV2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="400" Width="350">
+        Title="MainWindow" Height="330" Width="280">
+
+    <Window.Resources>
+        <Style 
+            x:Key="TextBoxStyle" 
+            TargetType="TextBox">
+            <Setter 
+                Property="Height" 
+                Value="22"/>
+            <Setter 
+                Property="TextWrapping" 
+                Value="Wrap"/>
+            <Setter 
+                Property="VerticalAlignment" 
+                Value="Top"/>
+            <Setter 
+                Property="HorizontalAlignment" 
+                Value="Right"/>
+            <Setter 
+                Property="Width" 
+                Value="160"/>
+        </Style>
+        <Style 
+            x:Key="GridStyle" 
+            TargetType="Grid">
+            <Setter 
+                Property="HorizontalAlignment" 
+                Value="Left"/>
+            <Setter 
+                Property="Height" 
+                Value="76"/>
+            <Setter 
+                Property="VerticalAlignment" 
+                Value="Top"/>
+            <Setter 
+                Property="Width" 
+                Value="310"/>
+            <Setter
+                Property="HorizontalAlignment"
+                Value="Stretch"/>
+            <Setter
+                Property="Width"
+                Value="Auto"/>
+            <Setter
+                Property="Height"
+                Value="Auto"/>
+            <Setter
+                Property="Margin"
+                Value="0,0,0,2"/>
+            <Setter
+                Property="VerticalAlignment"
+                Value="Stretch"/>
+        </Style>
+        <Style 
+            x:Key="ButtonStyle" 
+            TargetType="Button">
+            <Setter 
+                Property="Width" 
+                Value="75"/>
+            <Setter 
+                Property="HorizontalAlignment" 
+                Value="Right"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="150*"/>
-            <RowDefinition Height="150*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="140*"/>
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Base Price" Margin="10" Grid.Row="1"/>
-        <GroupBox Header="Additional Characters" Margin="10" Grid.Row="2"/>
-        <Button Content="Save" Margin="257,10,10,10" Grid.Row="3"/>
-        <Button Content="Cancel" Margin="177,10,90,10" Grid.Row="3"/>
 
+        <Menu Height="20" VerticalAlignment="Top">
+            <MenuItem Header="_File">
+                <MenuItem 
+                    Header="_Copy" 
+                    Command="Copy"/>
+                <MenuItem 
+                    Header="_Paste" 
+                    Command="Paste"/>
+                <MenuItem 
+                    Header="_Save As..." 
+                    Click="SaveMenu_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_How To Use"/>
+                <MenuItem Header="_Help"/>
+            </MenuItem>
+        </Menu>
 
+        <GroupBox 
+            Header="Base Price" 
+            Margin="10" 
+            Grid.Row="1">
+            <Grid 
+                Style="{StaticResource GridStyle}">
+                <TextBox 
+                    x:Name="PriceBox"
+                    Style="{StaticResource TextBoxStyle}" 
+                    Margin="0,10,5,0" />
+                <TextBox 
+                    x:Name="CurrencyBox"
+                    Style="{StaticResource TextBoxStyle}" 
+                    Margin="0,44,5,0"/>
+                <Label 
+                    Content="Price:" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,10,0,0" 
+                    VerticalAlignment="Top"/>
+                <Label 
+                    Content="Currency:" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,40,0,0" 
+                    VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox 
+            Header="Additional Characters" 
+            Margin="10" 
+            Grid.Row="2">
+            <Grid 
+                Style="{StaticResource GridStyle}">
+                <TextBox 
+                    Style="{StaticResource TextBoxStyle}" 
+                    Margin="10,44,0,0" 
+                    HorizontalAlignment="Left" Width="177"/>
+                <Label 
+                    Content="Label" 
+                    Margin="0,44,10,0" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Width="38"/>
+                <ComboBox Text="Choose One..." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="220">
+                    <ComboBoxItem>Price Per Character</ComboBoxItem>
+                    <ComboBoxItem>Percent Saved</ComboBoxItem>
+                </ComboBox>
+
+            </Grid>
+        </GroupBox>
+
+        <Button 
+            Style="{StaticResource ButtonStyle}"
+            Content="Save" 
+            Margin="0,10,10,10" 
+            Grid.Row="3"/>
+
+        <Button 
+            Style="{StaticResource ButtonStyle}"
+            Content="Cancel" 
+            Margin="0,10,90,10" 
+            Grid.Row="3"/>
     </Grid>
 </Window>
