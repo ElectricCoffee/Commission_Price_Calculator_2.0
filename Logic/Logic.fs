@@ -11,9 +11,9 @@
 
     let selectionChanged input currency = 
         match input with
-            | "Choose One..." -> "   "
-            | "Price Per Character" -> currency
-            | "Percent Saved" -> "%"
+            | _ when input = Resource.Choose.Value -> "   "
+            | _ when input = Resource.Price.Value -> currency
+            | _ when input = Resource.Percent.Value -> "%"
             | _ -> "ERROR"
 
     let saveButtonClick (price:float) (currency:string) (additionalOption:string) (extraCharacters:float) =

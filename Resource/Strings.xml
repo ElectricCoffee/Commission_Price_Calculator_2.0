@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Strings>
+  <String Name="choose">Choose One...</String>
+  <String Name="price">Price Per Character</String>
+  <String Name="percent">Percent Saved</String>
+</Strings>
