@@ -1,20 +1,26 @@
 ﻿module CommishCalculatorV2.Resource
 
-    open FSharp.Data
-    open System.Xml.Linq
+open FSharp.Data
+open System.Xml.Linq
 
-    type File = XmlProvider<"Strings.xml">
+module Data =
+    type private File = XmlProvider<"Strings.xml">
 
-    let strings = File.GetSample()
+    let private strings = File.GetSample()
 
-    [<AbstractClass; Sealed>]
-    type Choose = 
-        static member Value = (strings.GetStrings() |> Array.find (fun attr -> attr.Name = "choose")).Value
+    let private getXmlData str = 
+        strings.GetStrings() 
+        |> Array.find (fun attr -> attr.Name = str)
 
-    [<AbstractClass; Sealed>]
-    type Price = 
-        static member Value = (strings.GetStrings() |> Array.find (fun attr -> attr.Name = "price")).Value
+    type BaseClass(s: string) =
+        let _str = s
+        let _data = getXmlData _str
 
-    [<AbstractClass; Sealed>]
-    type Percent = 
-        static member Value = (strings.GetStrings() |> Array.find (fun attr -> attr.Name = "percent")).Value
+        member this.Value = _data.Value
+        member this.Name = _data.Name
+
+let Choose = new Data.BaseClass "choose"
+
+let Price = new Data.BaseClass "price"
+
+let Percent = new Data.BaseClass "percent"
