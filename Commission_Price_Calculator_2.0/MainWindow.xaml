@@ -6,7 +6,11 @@
         Title="MainWindow" Height="330" Width="280">
 
     <Window.Resources>
-        <XmlDataProvider x:Key="DropDownData" Source="/Resource;component/Strings.xml" XPath="/Strings/String" />
+        <XmlDataProvider 
+            x:Key="DropDownData" 
+            Source="/Resource;component/Strings.xml" 
+            XPath="/Strings/String" />
+        
         <Style 
             x:Key="TextBoxStyle" 
             TargetType="TextBox">
