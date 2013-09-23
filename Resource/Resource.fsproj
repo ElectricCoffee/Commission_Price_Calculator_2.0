@@ -38,7 +38,7 @@
   <ItemGroup>
     <Compile Include="Resource.fs" />
     <None Include="Script.fsx" />
-    <Content Include="Strings.xml" />
+    <Resource Include="Strings.xml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,5 @@
 ﻿module CommishCalculatorV2.Logic
 
-open System.IO
-
 let formatter (price:float) (currency:string) (extraCharacters:float) (inputFunction: float -> float -> int -> float) =
     let partialInput = inputFunction price extraCharacters in
         
@@ -20,11 +18,15 @@ let saveButtonClick (price:float) (currency:string) (additionalOption:string) (e
     let formatHelper (inputFunction: float -> float -> int -> float) = 
         formatter price currency extraCharacters inputFunction in
     let result = 
+
+        let adder = fun p m n -> p + m * float n
+        let percenter = fun p m n -> ((float n + 1.0) * p) - ((float n + 1.0) * p) * (m / 100.0)
+
         match additionalOption with
-            | "Price Per Character" -> Some (formatHelper (fun p m n -> p + m * float n))
-            | "Percent Saved" -> Some (formatHelper (fun p m n -> ((float n + 1.0) * p) - ((float n + 1.0) * p) * (m / 100.0)))
+            | _ when additionalOption = Resource.Price.Value -> Some (formatHelper adder)
+            | _ when additionalOption = Resource.Percent.Value -> Some (formatHelper percenter)
             | _ -> None
 
     match result with
         | Some(strLst) -> strLst
-        | None -> "E"::"R"::"R"::"O"::"R"::[]
+        | None -> "E"::"R"::"R"::[]

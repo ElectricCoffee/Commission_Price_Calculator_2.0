@@ -2,9 +2,11 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:extern="clr-namespace:System;assembly=mscorlib"
+        xmlns:fres="clr-namespace:CommishCalculatorV2;assembly=Resource"
         Title="MainWindow" Height="330" Width="280">
 
     <Window.Resources>
+        <XmlDataProvider x:Key="DropDownData" Source="/Resource;component/Strings.xml" XPath="/Strings/String" />
         <Style 
             x:Key="TextBoxStyle" 
             TargetType="TextBox">
@@ -138,23 +140,9 @@
                 <ComboBox 
                     x:Name="AdditionalCombo" 
                     Margin="10,10,10,44" 
-                    SelectedIndex="0" SelectionChanged="AdditionalCombo_SelectionChanged">
-                    <ComboBox.Items>
-                        <extern:String>Choose One...</extern:String>
-                        <extern:String>Price Per Character</extern:String>
-                        <extern:String>Percent Saved</extern:String>
-                    </ComboBox.Items>
-                    <!-- <ComboBoxItem
-                        x:Name="ItemChoose"
-                        Content="Choose One..."/>
-                    <ComboBoxItem 
-                        x:Name="ItemPrice"
-                        Content="Price Per Character"/>
-                    <ComboBoxItem 
-                        x:Name="ItemPercent"
-                        Content="Percent Saved"/> -->
-                </ComboBox>
-
+                    SelectedIndex="0" 
+                    SelectionChanged="AdditionalCombo_SelectionChanged"
+                    ItemsSource="{Binding Source={StaticResource DropDownData}}" />
             </Grid>
         </GroupBox>
 
