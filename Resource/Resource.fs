@@ -3,17 +3,16 @@
 open FSharp.Data
 open System.Xml.Linq
 
-type private File = XmlProvider<"Strings.xml">
+type private File = XmlProvider<"Strings.xml"> // define an xml provider based on the Strings.xml file.
 
-let private strings = File.GetSample()
+let private strings = File.GetSample() // use the xml file, not as a template, but as the actual file.
 
-let private getXmlData str = 
+let private getXmlData str = // gets the describing string from the file where the input matches the Name.
     strings.GetStrings() 
     |> Array.find (fun attr -> attr.Name = str)
 
-type BaseClass(s: string) =
-    let _str = s
-    let _data = getXmlData _str
+type BaseClass(s: string) = // base class for easy access of the deserialised data in the xml file.
+    let _data = getXmlData s
 
     member this.Value = _data.Value
     member this.Name = _data.Name
